@@ -1,0 +1,19 @@
+from tkinter import *
+
+box = Tk()
+box.title('Draw with Python!')
+def buc(e):
+    x1, y1 = (e.x - 1) , (e.y - 1)
+    x2, y2 = (e.x + 1) , (e.y + 1)
+    can.create_arc(x1,y1,x2,y2,outline='white')
+
+can = Canvas(box,height=200,width=200,bg='red')
+can.bind("<B1-Motion>",buc)
+can.pack(expand = True,fill = 'both')
+def clk():
+    can.delete('all')
+
+bu = Button(box, text = "Clear All.!!!",bg='yellow',\
+            fg='red',command = clk)
+bu.pack()
+box.mainloop()
